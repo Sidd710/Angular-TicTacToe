@@ -1,0 +1,32 @@
+<mat-card>
+    <h2>Tic Tac Toe ({{boardSize}}x{{boardSize}})</h2>
+  
+    <div class="board">
+      <div *ngFor="let row of board; let i = index" class="row">
+        <button
+          mat-raised-button
+          color="primary"
+          *ngFor="let cell of row; let j = index"
+          class="cell"
+          (click)="makeMove(i, j)"
+          [disabled]="cell !== '' || winner"
+        >
+          {{ cell }}
+        </button>
+      </div>
+    </div>
+  
+    <div class="status">
+      <p *ngIf="winner; else nextTurn">
+         Winner: <strong>{{ winner }}</strong>
+      </p>
+      <ng-template #nextTurn>
+        <p> Turn: <strong>{{ players[currentPlayerIndex] }}</strong></p>
+      </ng-template>
+  
+      <button mat-stroked-button color="accent" (click)="resetGame()">
+         Reset Game
+      </button>
+    </div>
+  </mat-card>
+  
