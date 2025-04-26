@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameComponent implements OnInit {
   // Configurable parameters
-  boardSize = 10;  // Default to 5x5
-  winCondition = 5;  // Default win condition is 4 consecutive cells
+  boardSize = 5;  // Default to 5x5
+  winCondition = 4;  // Default win condition is 4 consecutive cells
   players = ['X', 'O', 'Δ'];  // Player symbols
   currentPlayerIndex = 0;  // Track whose turn it is
   winner: string | null = null;  // Track the winner
